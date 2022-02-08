@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>First Spring application</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid d-flex justify-content-between">
+        <div>
+            <h2 class="navbar-brand">BITLAB SHOP</h2>
+        </div>
+
+
+        <div class="navbar-nav">
+            <a class="nav-link" href="/main">Top Sales</a>
+            <a class="nav-link" href="#">New Sales</a>
+            <a class="nav-link" href="#">By Category</a>
+            <a class="nav-link" href="/login">Sign In</a>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row ">
+        <div class="col-lg-12 text-center">
+            <h1>Welcome to BITLAB SHOP</h1>
+        </div>
+
+
+    </div>
+    <div class="row ">
+        <div class="text-center">
+            <p>Electronic devices with high quality and service</p>
+        </div>
+
+
+    </div>
+    <div class="row d-flex justify-content-around" >
+
+                <div class="col-lg-3" th:each="item:${Items}">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h3 class="card-title bg-light" th:text="${item.name}"></h3>
+                            <h5 class="card-title text-success"th:text="${item.price}"></h5>
+                            <p class="card-text" th:text="${item.description}">$</p>
+                            <a href="#" class="btn btn-success ms-5">Buy now</a>
+                        </div>
+                    </div>
+                </div>
+
+    </div>
+</div>
+</body>
+</html>
